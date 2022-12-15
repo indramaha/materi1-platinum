@@ -1,0 +1,25 @@
+.register-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.register-input-bg {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.register-input {
+    width: 400px;
+    height: 24px;
+}
+
+.register-button-bg {
+    margin-top: 24px;
+}
+
+.register-button {
+    width: 400px;
+    height: 40px;
+}
