@@ -1,0 +1,9 @@
+.navbar-section {
+    display: flex;
+    justify-content: space-around;
+}
+
+.navbar-right {
+    display: flex;
+    gap: 24px;
+}
