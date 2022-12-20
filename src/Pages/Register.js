@@ -26,7 +26,6 @@ const Register = () => {
             .post(API.REGISTER, payLoad)
             .then((ress) => {
                 console.log(ress)
-                localStorage.setItem("token", ress.data.access_token);
             })
             .catch((err) => console.log(err.message))
     }
