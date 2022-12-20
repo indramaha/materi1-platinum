@@ -6,6 +6,7 @@ import Login from './Pages/Login';
 import Register from './Pages/Register';
 import ProtectedRoute from './hoc/ProtectedRoute';
 import ProtectedRoutes from './hoc/ProtectedRoutes';
+import NewCar from './Pages/NewCar';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       {/* cara pasang prtectedroute1 start */}
       <Route element={<ProtectedRoute />}>
         <Route path='/discovery' element={<DiscoveryPage />}/>
+        <Route path='/addnewcar' element={<NewCar />} />
       </Route>
       {/* cara pasang prtectedroute1 finish */}
 

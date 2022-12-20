@@ -1,0 +1,19 @@
+.newcar-section {
+    background-color: #F4F5F7;
+    margin: 0;
+    height: 100vh;
+}
+
+.newcar-form-bg {
+    background-color: white;
+}
+
+.newcar-form {
+    width: 450px;
+}
+
+.newcar-input-bg {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
