@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { API } from '../const/endpoint';
 import './Register.css'
 import Navbar from '../Components/Navbar';
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
     const [email, setEmail] = useState("")
@@ -15,6 +16,8 @@ const Register = () => {
         setPassword(e.target.value)
     }
 
+    const navigate = useNavigate()
+
     const handleRegis = () => {
         const payLoad = {
             email : email,
@@ -26,6 +29,7 @@ const Register = () => {
             .post(API.REGISTER, payLoad)
             .then((ress) => {
                 console.log(ress)
+                navigate('/login')
             })
             .catch((err) => console.log(err.message))
     }

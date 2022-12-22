@@ -1,6 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./NewCar.css"
 import { useState } from "react";
+import axios from "axios";
+import { API } from "../const/endpoint";
 
 const NewCar = () => {
 
@@ -21,7 +23,32 @@ const NewCar = () => {
         setCategory(e.target.value)
     }
 
-    console.log(image)
+    const navigate = useNavigate()
+
+    const handleSaveButton = () => {
+        const token = localStorage.getItem("token")
+
+        const config = {
+            headers : {
+                access_token: token
+            },
+        }
+
+        const formData = new FormData();
+        formData.append("image", image)
+        formData.append("name", name)
+        formData.append("category", category)
+        formData.append("price", price)
+        formData.append("status", false)
+
+        axios
+            .post(API.POST_CAR_ADMIN, formData, config)
+            .then((ress) =>{
+                console.log(ress)
+                navigate("/discovery")
+            })
+            .catch((err) => console.log(err.message)) 
+    }
     
     return ( 
         <div className="newcar-section">
@@ -76,7 +103,7 @@ const NewCar = () => {
                     </Link>
                 </div>
                 <div>
-                    <button>save</button>
+                    <button onClick={handleSaveButton}>save</button>
                 </div>
             </div>
         </div>

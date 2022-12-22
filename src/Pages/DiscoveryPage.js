@@ -9,11 +9,33 @@ const DiscoveryPage = () => {
     const [car, setCar] = useState([])
 
     useEffect(() => {
+        getCars()
+    },[])
+
+    const handleDeleteButton = (id) => {
         const token = localStorage.getItem("token")
-        let config = {
-            headers: {
-                'access_token': token
-            }
+
+        const config = {
+            headers : {
+                access_token: token
+            },
+        }
+
+        axios
+            .delete(`https://bootcamp-rent-cars.herokuapp.com/admin/car/${id}`, config)
+            .then((ress) => {
+                console.log(ress)
+            })
+            .catch((err) => console.log(err.message))
+    }
+
+    const getCars = () => {
+        const token = localStorage.getItem("token")
+
+        const config = {
+            headers : {
+                access_token: token
+            },
         }
 
         axios
@@ -23,7 +45,31 @@ const DiscoveryPage = () => {
                 setCar(ress.data.cars)
             })
             .catch((err) => console.log(err.message))
-    },[])
+    }
+
+    // const handleEditButton = (id) => {
+    //     const token = localStorage.getItem("token")
+
+    //     const config = {
+    //         headers : {
+    //             access_token: token
+    //         },
+    //     }
+
+    //     const formData = new FormData();
+    //     formData.append("image", image)
+    //     formData.append("name", name)
+    //     formData.append("category", category)
+    //     formData.append("price", price)
+    //     formData.append("status", false)
+
+    //     axios
+    //         .put(`https://bootcamp-rent-cars.herokuapp.com/admin/car/${id}`, config)
+    //         .then((ress) => {
+    //             console.log(ress)
+    //         })
+    //         .catch((err) => console.log(err.message))
+    // }
 
 
     return ( 
@@ -74,10 +120,12 @@ const DiscoveryPage = () => {
                                 </div>
                                 <div className="discovery-card-button-bg">
                                     <div>
-                                        <button className="discovery-card-button-delete">delete</button>
+                                        <button className="discovery-card-button-delete" onClick={() =>handleDeleteButton(item.id)}>delete</button>
                                     </div>
                                     <div>
-                                        <button className="discovery-card-button-edit">edit</button>
+                                        <Link to={`/edit/${item.id}`}>
+                                            <button className="discovery-card-button-edit">edit</button>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>

@@ -7,6 +7,7 @@ import Register from './Pages/Register';
 import ProtectedRoute from './hoc/ProtectedRoute';
 import ProtectedRoutes from './hoc/ProtectedRoutes';
 import NewCar from './Pages/NewCar';
+import EditPage from './Pages/EditPage';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Route element={<ProtectedRoute />}>
         <Route path='/discovery' element={<DiscoveryPage />}/>
         <Route path='/addnewcar' element={<NewCar />} />
+        <Route path="edit/:id" element={<EditPage />} /> 
       </Route>
       {/* cara pasang prtectedroute1 finish */}
 

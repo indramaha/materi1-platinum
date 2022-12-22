@@ -46,7 +46,7 @@ const Login = () => {
 
     const handleLogout = (() => {
         localStorage.removeItem("token")
-        Navigate("/")
+        navigate("/login")
     })
     return ( 
         <div>
