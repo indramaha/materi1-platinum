@@ -18,7 +18,7 @@ function App() {
       <Route element={<ProtectedRoute />}>
         <Route path='/discovery' element={<DiscoveryPage />}/>
         <Route path='/addnewcar' element={<NewCar />} />
-        <Route path="edit/:id" element={<EditPage />} /> 
+        <Route path="/edit/:id" element={<EditPage />} /> 
       </Route>
       {/* cara pasang prtectedroute1 finish */}
 

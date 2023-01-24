@@ -107,7 +107,7 @@ const EditPage = () => {
                         <p>Kategori*</p>
                     </div>
                     <div>
-                        <select onChange={handleCategory}>
+                        <select onClick={handleCategory}>
                             <option value="small">small</option>
                             <option value="Medium">medium</option>
                             <option value="large">large</option>
